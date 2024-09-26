@@ -15,7 +15,34 @@ class TransactionController extends Controller
     $types = TransactionType::all();
     $categories = TransactionCategory::all();
 
-    return view('transactions.index', compact('transcations', 'types', 'categories'));
+    return view('transactions.index', compact('transactions', 'types', 'categories'));
+  }
+
+  public function income()
+  {
+    $transactions = Transaction::where('type_id', 1)
+      ->latest()
+      ->paginate(5);
+
+    return view('transactions.index', compact('transactions'));
+  }
+  public function expense()
+  {
+    $transactions = Transaction::where('type_id', 2)
+      ->latest()
+      ->paginate(10);
+
+
+    return view('transactions.expense', compact('transactions'));
+  }
+
+
+  public function create()
+  {
+    $transactions = Transaction::with(['type', 'category']);
+    $types = TransactionType::all();
+    $categories = TransactionCategory::all();
+    return view('transactions.add', compact('transactions', 'types', 'categories'));
   }
 
   public function store(Request $request)
@@ -33,6 +60,16 @@ class TransactionController extends Controller
       ->route("transactions.index")
       ->with('success', 'Transaksi berhasil ditambahkan.');
   }
+
+  public function edit($id)
+  {
+    $transaction = Transaction::findOrFail($id);
+    $types = TransactionType::all();
+    $categories = TransactionCategory::all();
+
+    return view('transactions.edit', compact('transaction', 'types', 'categories'));
+  }
+
 
   public function update(Request $request, Transaction $transaction)
   {

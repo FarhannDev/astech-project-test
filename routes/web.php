@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,23 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('layouts.dashboard');
+});
+
+
+
+Route::prefix('transaction')->group(function () {
+  Route::get('/', [TransactionController::class, 'income'])->name('transactions.index');
+  Route::get('/income', [TransactionController::class, 'income'])->name('transactions.income');
+  Route::get('/expense', [TransactionController::class, 'expense'])->name('transactions.expense');
+
+  Route::get('/new', [TransactionController::class, 'create'])->name('transactions.create');
+  Route::post('/store', [TransactionController::class, 'store'])->name('transactions.store');
+  Route::get('/edit/{id}', [TransactionController::class, 'edit'])->name('transactions.edit');
+  Route::put('/update/{transaction}', [TransactionController::class, 'update'])->name('transactions.update');
+
+  Route::delete('/delete/{transaction}', [
+    TransactionController::class,
+    'destroy'
+  ])->name('transactions.destroy');
 });

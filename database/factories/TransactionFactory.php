@@ -12,21 +12,21 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TransactionFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+  /**
+   * Define the model's default state.
+   *
+   * @return array<string, mixed>
+   */
 
-    protected $model = Transaction::class;
+  protected $model = Transaction::class;
 
-    public function definition(): array
-    {
-        return [
-            'type_id' => TransactionType::inRandomOrder()->first()->id,
-            'category_id' => TransactionCategory::inRandomOrder()->first()->id,
-            'amount' => $this->faker->randomFloat(2, 10, 1000),
-            'transaction_date' => $this->faker->date(),
-        ];
-    }
+  public function definition(): array
+  {
+    return [
+      'type_id' => TransactionType::inRandomOrder()->first()->id,
+      'category_id' => TransactionCategory::inRandomOrder()->first()->id,
+      'amount' => $this->faker->randomFloat(2, 10, 1000),
+      'transaction_date' => $this->faker->date(),
+    ];
+  }
 }
