@@ -20,15 +20,15 @@ class TransactionController extends Controller
 
   public function income()
   {
-    $transactions = Transaction::where('type_id', 1)
+    $transactions = Transaction::where('type_id', 2)
       ->latest()
-      ->paginate(5);
+      ->paginate(10);
 
     return view('transactions.index', compact('transactions'));
   }
   public function expense()
   {
-    $transactions = Transaction::where('type_id', 2)
+    $transactions = Transaction::where('type_id', 1)
       ->latest()
       ->paginate(10);
 

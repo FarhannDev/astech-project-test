@@ -23,7 +23,7 @@
                                     <tr>
                                         <th scope="col-auto">No</th>
                                         <th scope="col-auto">Kategori </th>
-                                        <th scope="col-auto">Jumlah Uang</th>
+                                        <th scope="col-auto">Total Uang</th>
                                         <th scope="col-auto">Tanggal</th>
                                         <th scope="col-auto">Waktu</th>
                                         <th scope="col-auto">Aksi</th>
@@ -38,22 +38,16 @@
                                             </th>
                                             <td class="text-start align-middle">{{ $transaction->category->name }}
                                             </td>
-                                            <td class="text-start align-middle">{{ $transaction->amount }}</td>
+                                            <td class="text-start align-middle">
+                                                {{ $rupiah = 'Rp ' . number_format($transaction->amount, 2, ',', '.') }}
+                                            </td>
                                             <td class="text-start align-middle">{{ $transaction->transaction_date }}</td>
                                             <td class="text-start align-middle">
-                                                {{ $time = Carbon::parse($transaction->created_at)->diffForHumans() }}
+                                                {{ $time = Carbon::parse($transaction->created_at) }}
                                             </td>
                                             <td>
                                                 <div class="mx-2">
                                                     <div class="d-flex justify-content-start align-items-center g-3">
-                                                        {{-- <form method="POST" class="m-2 delete-form"
-                                                            action="{{ route('transactions.destroy', $transaction->id) }}">
-                                                            @csrf
-                                                            @method('DELETE')
-                                                            <button title="Hapus" type="submit"
-                                                                class="btn btn-danger btn-sm rounded text-white"><i
-                                                                    class="fa fa-trash"></i></button>
-                                                        </form> --}}
 
                                                         <div class="mx-2">
                                                             <button onclick="confirmDelete({{ $transaction->id }})"

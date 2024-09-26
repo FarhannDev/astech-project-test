@@ -1393,3 +1393,11 @@ input {
     font-size: 12px;
   }
 }
+
+input[type="date"] {
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+}

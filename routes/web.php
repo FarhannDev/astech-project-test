@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\TransactionCategoryController;
 use App\Http\Controllers\TransactionController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Auth::routes();
 
 Route::get('/', function () {
   return view('layouts.dashboard');
@@ -37,4 +41,20 @@ Route::prefix('transaction')->group(function () {
     TransactionController::class,
     'destroy'
   ])->name('transactions.destroy');
+
+  Route::get('/category', [TransactionCategoryController::class, 'index'])->name('transactions.category.index');
+  Route::get('/category/new', [TransactionCategoryController::class, 'create'])->name('transactions.category.create');
+  Route::get('/category/edit/{id}', [TransactionCategoryController::class, 'edit'])->name('transactions.category.edit');
+
+  Route::post('/category', [TransactionCategoryController::class, 'store'])->name('transactions.category.store');
+  Route::delete('/category/{category}', [TransactionCategoryController::class, 'destroy'])->name('transactions.category.destroy');
+  Route::put('/category/{category}', [TransactionCategoryController::class, 'update'])->name('transactions.category.update');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

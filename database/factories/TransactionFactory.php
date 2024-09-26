@@ -25,8 +25,8 @@ class TransactionFactory extends Factory
     return [
       'type_id' => TransactionType::inRandomOrder()->first()->id,
       'category_id' => TransactionCategory::inRandomOrder()->first()->id,
-      'amount' => $this->faker->randomFloat(2, 10, 1000),
-      'transaction_date' => $this->faker->date(),
+      'amount' => $this->faker->randomFloat(2, 10, 100000),
+      'transaction_date' => $this->faker->date('2024-09-26'),
     ];
   }
 }

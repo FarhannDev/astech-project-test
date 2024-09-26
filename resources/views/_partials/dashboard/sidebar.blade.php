@@ -29,6 +29,12 @@
           </div>
       </li>
 
+      <li class="nav-item ">
+          <a class="nav-link" href="{{ route('transactions.category.index') }}">
+              <i class="fas fa-fw fa-book"></i>
+              <span>Kategori</span></a>
+      </li>
+
 
       <li class="nav-item ">
           <a class="nav-link" href="">

@@ -48,7 +48,7 @@
 
                             <div class="form-group col-md-6">
                                 <label for="date">{{ __('Date') }}</label>
-                                <input type="date" class="form-control" name="transaction_date" id="date"
+                                <input type="text" id="datepicker" class="form-control" name="transaction_date"
                                     value="{{ old('transaction_date', $transaction->transaction_date) }}" required>
                             </div>
                         </div>
@@ -90,5 +90,12 @@
         window.onload = function() {
             updateCategories();
         };
+
+
+        flatpickr("#datepicker", {
+            dateFormat: "Y-m-d", // Format tanggal
+            minDate: "today", // Mulai dari tanggal hari ini
+            maxDate: new Date().fp_incr(60) // Sampai 60 hari ke depan
+        });
     </script>
 @endsection

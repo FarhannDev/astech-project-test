@@ -20,6 +20,8 @@ class TransactionCategoryFactory extends Factory
 
   public function definition(): array
   {
+
+
     return [
       'name' => $this->faker->randomElement(
         [
@@ -44,7 +46,8 @@ class TransactionCategoryFactory extends Factory
           'Rental Income',
           'Other'
         ]
-      )
+      ),
+
     ];
   }
 }

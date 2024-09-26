@@ -10,10 +10,11 @@
         <div class="col">
             <div class="card rounded shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title fst-bold">Transaksi Uang Keluar</h5>
+                    <h5 class="card-title fst-bold">Kategori Transaksi</h5>
 
-                    <a href="{{ route('transactions.create') }}" class="btn btn-md rounded bg-danger text-white  mt-2">Buat
-                        Catatan Baru <i class="fa fa-plus"></i></a>
+                    <a href="{{ route('transactions.category.create') }}"
+                        class="btn btn-md rounded bg-danger text-white  mt-2">Buat
+                        Kategori Baru <i class="fa fa-plus"></i></a>
 
 
                     <div class=" pt-4">
@@ -22,47 +23,46 @@
                                 <thead>
                                     <tr>
                                         <th scope="col-auto">No</th>
-                                        <th scope="col-auto">Kategori </th>
-                                        <th scope="col-auto">Total Uang</th>
-                                        <th scope="col-auto">Tanggal</th>
+                                        <th scope="col-auto">Nama </th>
+                                        <th scope="col-auto">Tipe</th>
                                         <th scope="col-auto">Waktu</th>
                                         <th scope="col-auto">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($transactions as $transaction)
+                                    @foreach ($categories as $category)
                                         <tr>
                                             <th scope="row " class="text-start align-middle">
 
-                                                {{ $transactions->currentPage() * $transactions->perPage() - $transactions->perPage() + 1 + $loop->index }}
+                                                {{ $categories->currentPage() * $categories->perPage() - $categories->perPage() + 1 + $loop->index }}
                                             </th>
-                                            <td class="text-start align-middle">{{ $transaction->category->name }}
+                                            <td class="text-start align-middle">{{ $category->name }}
                                             </td>
                                             <td class="text-start align-middle">
-                                                {{ $rupiah = 'Rp ' . number_format($transaction->amount, 2, ',', '.') }}
+                                                {{ $category->type->name }}
                                             </td>
-                                            <td class="text-start align-middle">{{ $transaction->transaction_date }}</td>
                                             <td class="text-start align-middle">
-                                                {{ $time = Carbon::parse($transaction->created_at) }}
+                                                {{ $time = Carbon::parse($category->created_at) }}
                                             </td>
                                             <td>
                                                 <div class="mx-2">
                                                     <div class="d-flex justify-content-start align-items-center g-3">
+
                                                         <div class="mx-2">
-                                                            <button onclick="confirmDelete({{ $transaction->id }})"
+                                                            <button onclick="confirmDelete({{ $category->id }})"
                                                                 type="button"
                                                                 class="btn btn-sm bg-danger rounded text-white">
                                                                 <i class="fa fa-trash"></i></button>
 
-                                                            <form id="delete-form-{{ $transaction->id }}"
-                                                                action="{{ route('transactions.destroy', $transaction->id) }}"
+                                                            <form id="delete-form-{{ $category->id }}"
+                                                                action="{{ route('transactions.category.destroy', $category->id) }}"
                                                                 method="POST" style="display: none;">
                                                                 @csrf
                                                                 @method('DELETE')
                                                             </form>
                                                         </div>
 
-                                                        <a href="{{ route('transactions.edit', $transaction->id) }}"
+                                                        <a href="{{ route('transactions.category.edit', $category->id) }}"
                                                             class="btn btn-sm bg-danger rounded text-white">
                                                             <i class="fa fa-pencil-alt"></i></a>
                                                     </div>
@@ -76,7 +76,7 @@
                                 </tbody>
                             </table>
                             <div class="pt-3 d-flex justify-content-center">
-                                {{ $transactions->links('pagination::bootstrap-4') }}
+                                {{ $categories->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
 
