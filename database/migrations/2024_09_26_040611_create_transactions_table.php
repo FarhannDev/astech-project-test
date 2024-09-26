@@ -6,33 +6,33 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
-    public function up(): void
-    {
-        Schema::create('transactions', function (Blueprint $table) {
-            $table->id();
+  /**
+   * Run the migrations.
+   */
+  public function up(): void
+  {
+    Schema::create('transactions', function (Blueprint $table) {
+      $table->id();
 
-            $table->foreignId('type_id')
-                ->constrained('transaction_types')
-                ->onDelete('cascade');
-            $table->foreignId('category_id')
-                ->constrained('transaction_categories')
-                ->onDelete('cascade');
+      $table->foreignId('type_id')
+        ->constrained('transaction_types')
+        ->onDelete('cascade');
+      $table->foreignId('category_id')
+        ->constrained('transaction_categories')
+        ->onDelete('cascade');
 
-            $table->decimal('amount', 10, 2);
-            $table->date('transaction_date');
+      $table->decimal('amount', 10, 2);
+      $table->date('transaction_date');
 
-            $table->timestamps();
-        });
-    }
+      $table->timestamps();
+    });
+  }
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('transactions');
-    }
+  /**
+   * Reverse the migrations.
+   */
+  public function down(): void
+  {
+    Schema::dropIfExists('transactions');
+  }
 };

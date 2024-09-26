@@ -10,41 +10,41 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TransactionCategoryFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+  /**
+   * Define the model's default state.
+   *
+   * @return array<string, mixed>
+   */
 
-    protected $model = TransactionCategory::class;
+  protected $model = TransactionCategory::class;
 
-    public function definition(): array
-    {
-        return [
-            'name' => $this->faker->randomElement(
-                [
-                    'Bills',
-                    'Car',
-                    'Clothes',
-                    'Travel',
-                    'Food',
-                    'Shooping',
-                    'House',
-                    'Entertaiment',
-                    'Phone',
-                    'Pets',
-                    "Business",
-                    'Invesments',
-                    'Extra Income',
-                    'Deposits',
-                    'Lottery',
-                    'Gifts',
-                    'Salary',
-                    'Savings',
-                    'Rental Income',
-                    'Other'
-                ]
-            )
-        ];
-    }
+  public function definition(): array
+  {
+    return [
+      'name' => $this->faker->randomElement(
+        [
+          'Bills',
+          'Car',
+          'Clothes',
+          'Travel',
+          'Food',
+          'Shooping',
+          'House',
+          'Entertaiment',
+          'Phone',
+          'Pets',
+          "Business",
+          'Invesments',
+          'Extra Income',
+          'Deposits',
+          'Lottery',
+          'Gifts',
+          'Salary',
+          'Savings',
+          'Rental Income',
+          'Other'
+        ]
+      )
+    ];
+  }
 }

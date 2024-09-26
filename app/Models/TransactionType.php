@@ -7,12 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class TransactionType extends Model
 {
-    use HasFactory;
+  use HasFactory;
 
-    protected $fillable = ['name'];
+  protected $fillable = ['name'];
 
-    public function transactions()
-    {
-        return $this->hasMany(Transaction::class, 'type_id');
-    }
+  public function transactions()
+  {
+    return $this->hasMany(Transaction::class, 'type_id');
+  }
+
+  public function categories()
+  {
+    return $this->hasMany(TransactionCategory::class, 'type_id');
+  }
 }

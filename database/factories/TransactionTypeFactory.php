@@ -10,18 +10,18 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class TransactionTypeFactory extends Factory
 {
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
+  /**
+   * Define the model's default state.
+   *
+   * @return array<string, mixed>
+   */
 
-    protected $model = TransactionType::class;
+  protected $model = TransactionType::class;
 
-    public function definition(): array
-    {
-        return [
-            'name' => $this->faker->randomElement(['Income', 'Expense'])
-        ];
-    }
+  public function definition(): array
+  {
+    return [
+      'name' => $this->faker->randomElement(['Pemasukan', 'Pengeluaran'])
+    ];
+  }
 }
