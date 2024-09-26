@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 
@@ -18,6 +19,8 @@ Route::get('/', function () {
   return view('layouts.dashboard');
 });
 
+
+Route::get('/dashboard', DashboardController::class)->name('dashboard.index');
 
 
 Route::prefix('transaction')->group(function () {

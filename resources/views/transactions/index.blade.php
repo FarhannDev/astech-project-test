@@ -10,7 +10,7 @@
         <div class="col">
             <div class="card rounded shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title fst-bold">Catatan Uang Masuk</h5>
+                    <h5 class="card-title fst-bold">Transaksi Uang Masuk</h5>
 
                     <a href="{{ route('transactions.create') }}" class="btn btn-md rounded bg-danger text-white  mt-2">Buat
                         Catatan Baru <i class="fa fa-plus"></i></a>

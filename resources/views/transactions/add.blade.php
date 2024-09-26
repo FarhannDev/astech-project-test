@@ -6,7 +6,7 @@
         <div class="col-xl-8 col-lg-12">
             <div class="card rounded shadow-sm" style="min-height: 350px;">
                 <div class="card-body">
-                    <h5 class="card-title fst-bold">Buat Catatan Baru</h5>
+                    <h5 class="card-title fst-bold">Buat Catatan Transaksi </h5>
 
                     <form action="{{ route('transactions.store') }}" method="POST" class="d-flex flex-column py-2">
                         @csrf
