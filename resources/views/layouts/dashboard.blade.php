@@ -64,7 +64,6 @@
                 <!-- /.container-fluid -->
             </div>
             <!-- End of Main Content -->
-            @include('_partials.dashboard.footer')
         </div>
         <!-- End of Content Wrapper -->
     </div>

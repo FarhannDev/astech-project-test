@@ -10,17 +10,17 @@ class DashboardController extends Controller
   public function __invoke()
   {
     // Total Pemasukan dan Pengeluaran Per Bulan
-    $incomes = Transaction::where('type_id', 1) // Anggap 1 untuk pemasukan
+    $incomes = Transaction::where('type_id', 2)
       ->selectRaw('MONTH(transaction_date) as month, SUM(amount) as total')
       ->groupBy('month')
       ->pluck('total', 'month')->toArray();
 
-    $expenses = Transaction::where('type_id', 2) // Anggap 2 untuk pengeluaran
+    $expenses = Transaction::where('type_id', 1)
       ->selectRaw('MONTH(transaction_date) as month, SUM(amount) as total')
       ->groupBy('month')
       ->pluck('total', 'month')->toArray();
 
-    // Convert missing months to 0
+
     $incomeData = [];
     $expenseData = [];
     for ($i = 1; $i <= 12; $i++) {

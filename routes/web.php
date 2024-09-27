@@ -3,7 +3,6 @@
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\TransactionCategoryController;
 use App\Http\Controllers\TransactionController;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,10 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Auth::routes();
-
 Route::get('/', function () {
-  return view('layouts.dashboard');
+  return redirect('/dashboard');
 });
 
 
@@ -50,11 +47,3 @@ Route::prefix('transaction')->group(function () {
   Route::delete('/category/{category}', [TransactionCategoryController::class, 'destroy'])->name('transactions.category.destroy');
   Route::put('/category/{category}', [TransactionCategoryController::class, 'update'])->name('transactions.category.update');
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

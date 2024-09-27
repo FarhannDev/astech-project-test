@@ -28,6 +28,7 @@ class TransactionController extends Controller
   }
   public function expense()
   {
+
     $transactions = Transaction::where('type_id', 1)
       ->latest()
       ->paginate(10);

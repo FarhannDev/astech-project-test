@@ -8,15 +8,15 @@
         <!-- Topbar Navbar -->
         <ul class="navbar-nav ml-auto">
 
-            <div class="topbar-divider d-none d-sm-block"></div>
+            {{-- <div class="topbar-divider d-none d-sm-block"></div> --}}
             <!-- Nav Item - User Information -->
-            <li class="nav-item dropdown no-arrow">
+            {{-- <li class="nav-item dropdown no-arrow">
                 <a class="nav-link dropdown-toggle " href="#" id="userDropdown" role="button" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin</span>
                     <img class="img-profile rounded-circle  d-none d-sm-block" src="/assets/img/undraw_profile_2.svg">
                 </a>
-            </li>
+            </li> --}}
         </ul>
     </nav>
     <!-- End of Topbar -->

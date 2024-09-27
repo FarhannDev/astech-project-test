@@ -15,32 +15,24 @@
       </li>
       <li class="nav-item ">
 
-      <li class="nav-item">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#catatanKeuangan"
-              aria-expanded="true" aria-controls="catatanKeuangan">
-              <i class="fa fa-solid fa-fw fa-wallet"></i>
-              <span>Transaksi</span>
-          </a>
-          <div id="catatanKeuangan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <a class="collapse-item" href="{{ route('transactions.index') }}">Pemasukan</a>
-                  <a class="collapse-item" href="{{ route('transactions.expense') }}">Pengeluaran</a>
-              </div>
-          </div>
+      <li class="nav-item ">
+          <a class="nav-link" href="{{ route('transactions.index') }}">
+              <i class="fas fa-duotone fa-solid fa-dollar-sign"></i>
+              <span>Transaksi Uang Masuk</span></a>
+      </li>
+      <li class="nav-item ">
+          <a class="nav-link" href="{{ route('transactions.expense') }}">
+              <i class="fas fa-sharp fa-solid fa-dollar-sign"></i> <span>Transaksi Uang Keluar</span></a>
       </li>
 
       <li class="nav-item ">
           <a class="nav-link" href="{{ route('transactions.category.index') }}">
               <i class="fas fa-fw fa-book"></i>
-              <span>Kategori</span></a>
+              <span>Kategori Transaksi</span></a>
       </li>
 
 
-      <li class="nav-item ">
-          <a class="nav-link" href="">
-              <i class="fas fa-fw fa-sign-out-alt"></i>
-              <span>Logout</span></a>
-      </li>
+
 
   </ul>
   <!-- End of Sidebar -->
